@@ -1,9 +1,15 @@
-- name: HumansFYI
-  url: https://humans.fyi/
+- name: Lynn and Tonic
+  url: https://lynnandtonic.com/
+- name: April Zero
+  url: http://aprilzero.com/
+- name: Tatiana Mac
+  url: https://tatianamac.com/
 - name: Thalida
   url: https://thalida.me/
 - name: Strml
   url: https://www.strml.net/
+- name: Monica*dev
+  url: https://www.aboutmonica.com
 - name: TheFox
   url: https://thefox.is/
 - name: mnmlist
@@ -13,13 +19,13 @@
 - name: andy-bell
   url: https://andy-bell.design/
 - name: nicchan
-  url: https://www.nicchan.me/blog/features-i-want-for-shopify/
+  url: https://www.nicchan.me/blog/
 - name: mandy.dev
   url: https://mandy.dev/
 - name: Jackie Balzer
   url: http://jackiebalzer.com/
 - name: Mina.codes
-  url: http://mina.codes/#%F0%9F%92%8B
+  url: http://mina.codes/
 - name: DivJoy
   url: https://divjoy.com/
 - name: Lauro Silva
