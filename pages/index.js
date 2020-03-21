@@ -1,5 +1,5 @@
 import fetch from "isomorphic-unfetch";
-import colors from "./styles/colors";
+import colors from "../styles/colors";
 
 const Index = ({ websites }) => (
   <div
