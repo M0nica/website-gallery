@@ -6,13 +6,15 @@ const Index = ({ websites }) => (
     style={{
       textAlign: `center`,
       color: colors.primaryHeadline,
-      fontSize: `16px`
+      fontSize: `16px`,
+      fontFamily: "Arial"
     }}
   >
-    <h1>Monica*s Inspiration Gallery</h1>
-    <h2 style={{ color: colors.accent }}>
-      sites around the world wide web 🌏 that have inspired me.
-    </h2>
+    <h1>MONICA*S INSPIRATION GALLERY</h1>
+    <p style={{ color: colors.accent }}>
+      a collection of sites around the world wide web 🌏 that have inspired
+      me...
+    </p>
     <div id="flexContainer">
       {websites.length > 0 &&
         websites.map((url, i) => (
