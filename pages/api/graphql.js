@@ -1,7 +1,6 @@
 import { ApolloServer, gql } from "apollo-server-micro";
-import screenshot from "node-server-screenshot";
-import { getThumURL } from "thum.io";
 import data from "./data/websites.yml";
+import captureWebsite from "capture-website";
 
 const typeDefs = gql`
   type Query {
@@ -18,22 +17,16 @@ const resolvers = {
   Query: {
     websites(parent, args, context) {
       return data.map(website => {
-        screenshot.fromURL(
-          website.url,
-          `./public/${website.name.split(" ").join("")}-screenshot.png`,
-          {
-            waitAfterSelector: String["html"],
-            waitMilliseconds: 200
-          },
-          function() {
-            // saving screenshot in the `/public` directory
-          }
-        );
+        const fileName = `${website.name.split(" ").join("")}-screenshot.png`;
+        console.log(`attempting to capture ${website.url}`);
+        captureWebsite
+          .file(website.url, `public/${fileName}`, { overwrite: true })
+          .catch(error => console.log(error));
 
         return {
           name: website.name,
           address: website.url,
-          photo: `/${website.name.split(" ").join("")}-screenshot.png`
+          photo: `/${fileName}`
         };
       });
     }

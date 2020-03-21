@@ -1,25 +1,22 @@
 import fetch from "isomorphic-unfetch";
-import getConfig from "next/config";
-
-const { publicRuntimeConfig } = getConfig();
-const { API_URL } = publicRuntimeConfig;
 
 const Index = ({ websites }) => (
   <>
     <h1>Website Gallery</h1>
     <div id="flexContainer">
-      {websites.map((url, i) => (
-        <div className="website">
-          <div key={url.name} className="title">
-            {" "}
-            {url.name}
+      {websites.length > 0 &&
+        websites.map((url, i) => (
+          <div className="website" key={`${url.name}-card`}>
+            <div key={url.name} className="title">
+              {" "}
+              {url.name}
+            </div>
+            <div key={i}>
+              <a href={url.address}>{url.address}</a>
+            </div>
+            <img src={url.photo} alt={url.name} />
           </div>
-          <div key={i}>
-            <a href={url.address}>{url.address}</a>
-          </div>
-          <img src={url.photo} alt={url.name} />
-        </div>
-      ))}
+        ))}
       <style jsx>{`
         #flexContainer {
           display: flex;
@@ -35,10 +32,6 @@ const Index = ({ websites }) => (
         img {
           width: 100%;
         }
-        ,
-        // .website:nth-child(even) {
-        //   background-color: #feeeff;
-        // }
         ,
         h1,
         a {
@@ -58,35 +51,23 @@ const Index = ({ websites }) => (
   </>
 );
 
-export async function getStaticProps(context) {
-  const response = await fetch(`http://localhost:3000/api/graphql`, {
+export async function getServerSideProps({ req }) {
+  const protocol = req.protocol ? req.protocol : `http`;
+  const base_url = `${protocol}://${req.headers.host}`;
+
+  const response = await fetch(`${base_url}/api/graphql`, {
     method: "POST",
     headers: {
       "Content-type": "application/json"
     },
     body: JSON.stringify({ query: "{ websites { name, address, photo } }" })
   });
+
   const {
     data: { websites }
   } = await response.json();
 
   return { props: { websites } };
 }
-
-// Index.getInitialProps = async () => {
-//   const response = await fetch("http://localhost:3000/api/graphql", {
-//     method: "POST",
-//     headers: {
-//       "Content-type": "application/json"
-//     },
-//     body: JSON.stringify({ query: "{ websites { name, address, photo } }" })
-//   });
-
-//   const {
-//     data: { websites }
-//   } = await response.json();
-
-//   return { websites };
-// };
 
 export default Index;
