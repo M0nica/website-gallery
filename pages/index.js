@@ -31,21 +31,22 @@ const Index = ({ websites }) => (
                     marginTop: `1em`
                   }}
                 >
-                  {url.colors.sort().map(color => (
-                    <div
-                      style={{
-                        backgroundColor: color,
-                        display: `inline-block`,
-                        borderRadius: `50%`,
-                        width: `15px`,
-                        height: `15px`,
-                        margin: `.5em`
-                      }}
-                    >
-                      {" "}
-                      &nbsp;
-                    </div>
-                  ))}
+                  {url.colors &&
+                    url.colors.sort().map(color => (
+                      <div
+                        style={{
+                          backgroundColor: color,
+                          display: `inline-block`,
+                          borderRadius: `50%`,
+                          width: `15px`,
+                          height: `15px`,
+                          margin: `.5em`
+                        }}
+                      >
+                        {" "}
+                        &nbsp;
+                      </div>
+                    ))}
                 </div>
 
                 <img src={url.photo} alt={url.name} />
