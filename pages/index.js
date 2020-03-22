@@ -13,16 +13,16 @@ const Index = ({ websites }) => (
     </p>
     <div id="flexContainer">
       {websites.length > 0 &&
-        websites.map((url, i) => (
-          <div className="websiteCard" key={`${url.name}-card`}>
-            <div key={url.name} className="title">
+        websites.map(({ name, address, colors, photo }, i) => (
+          <div className="websiteCard" key={`${name}-card`}>
+            <div key={name} className="title">
               {" "}
-              {url.name}
+              {name}
             </div>
 
             <div key={i}>
-              <a href={url.address}>
-                {url.address}
+              <a href={address}>
+                {address}
 
                 <div
                   style={{
@@ -31,8 +31,8 @@ const Index = ({ websites }) => (
                     marginTop: `1em`
                   }}
                 >
-                  {url.colors &&
-                    url.colors.sort().map(color => (
+                  {colors &&
+                    colors.sort().map(color => (
                       <div
                         style={{
                           backgroundColor: color,
@@ -49,7 +49,7 @@ const Index = ({ websites }) => (
                     ))}
                 </div>
 
-                <img src={url.photo} alt={url.name} />
+                <img src={photo} alt={name} />
               </a>
             </div>
           </div>

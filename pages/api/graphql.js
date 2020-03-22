@@ -15,31 +15,35 @@ const typeDefs = gql`
     name: String
     photo: String
     colors: [String]
+    author: String
   }
 `;
 
 const resolvers = {
   Query: {
     websites(parent, args, context) {
-      return data.map(website => {
-        const fileName = `${website.name.split(" ").join("")}-screenshot.png`;
+      return data.map(({ name, url, author }) => {
+        const fileName = `${name.split(" ").join("")}-screenshot.png`;
 
-        console.log(`attempting to capture ${website.url}`);
+        console.log(`attempting to capture ${url}`);
 
         captureWebsite
-          .file(website.url, `public/${fileName}`, {
+          .file(url, `public/${fileName}`, {
             overwrite: true,
             delay: 4
           })
           .catch(error => console.log(error));
 
+        const colors = getColors(`public/${fileName}`).then(colors => {
+          return colors.map(color => color.hex());
+        });
+
         return {
-          name: website.name,
-          address: website.url,
+          name,
+          address: url,
           photo: `/${fileName}`,
-          colors: getColors(`public/${fileName}`).then(colors => {
-            return colors.map(color => color.hex());
-          })
+          colors,
+          author
         };
       });
     }
