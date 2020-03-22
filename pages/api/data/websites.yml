@@ -1,52 +1,75 @@
 - name: Lynn and Tonic
   url: https://lynnandtonic.com/
+  author: Lynn Fisher
 - name: April Zero
   url: http://aprilzero.com/
+  author: Anand Sharma
 - name: Tatiana Mac
   url: https://tatianamac.com/
+  author: Tatiana Mac
 - name: Thalida
   url: https://thalida.me/
+  author: Thalida Noel
 - name: Strml
   url: https://www.strml.net/
+  author: Samuel Reed
 - name: Monica*dev
   url: https://www.aboutmonica.com
+  author: Monica Powell
 - name: TheFox
   url: https://thefox.is/
+  author: Karolina Szczur
 - name: mnmlist
   url: http://mnmlist.com
+  author: Leo Babauta
 - name: no.lol
   url: https://www.no.lol/
+  author: Lauren Tan
 - name: andy-bell
   url: https://andy-bell.design/
-- name: nicchan
+  author: Andy Bell
+- name: Nic Chan
   url: https://www.nicchan.me/blog/
+  author: Nic Chan
 - name: mandy.dev
   url: https://mandy.dev/
+  author: Mandy Michael
 - name: Jackie Balzer
   url: http://jackiebalzer.com/
+  author: Jackie Balzer
 - name: Mina.codes
   url: http://mina.codes/
-- name: DivJoy
-  url: https://divjoy.com/
+  author: Mina Markham
 - name: Lauro Silva
   url: https://laurosilva.com/
+  author: Lauro Silva
 - name: You Found Waldo
   url: https://youfoundwaldo.com/
+  author: Waldo Broodrÿk
 - name: Fajar Siddiq
   url: https://www.fajarsiddiq.com/
+  author: Fajar Siddiq
 - name: Riley Jones Design
   url: https://rileyjonesdesign.webflow.io/
+  author: Riley Jones
 - name: Tris Web
   url: https://www.trisweb.com/
-- name: Nadiaux
+  author: Tristan Ward
+- name: NadiaUX
   url: https://www.nadiaux.design/
+  author: Nadia Sotnikova
 - name: Carolyn Zhang
   url: http://carolynzhang.com/
+  author: Carolyn Zhang
 - name: leerob
   url: https://leerob.io/
+  author: Lee Robinson
 - name: Nicole Dominguez
   url: https://nicoledominguez.com/
+  author: Nicole Dominguez
 - name: Lachlanjc.me
   url: https://lachlanjc.me/
+  author: Lachlan Campbell
 - name: nyu.lachlanjc
   url: https://nyu.lachlanjc.me/
+  author: Lachlan Campbell
