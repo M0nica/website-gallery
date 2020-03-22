@@ -1,31 +1,53 @@
 import fetch from "isomorphic-unfetch";
-import colors from "../styles/colors";
 
 const Index = ({ websites }) => (
   <div
     style={{
-      textAlign: `center`,
-      color: colors.primaryHeadline,
-      fontSize: `16px`,
-      fontFamily: "Arial"
+      color: `var(--primary-headline)`
     }}
   >
     <h1>MONICA*S INSPIRATION GALLERY</h1>
-    <p style={{ color: colors.accent }}>
+    <p style={{ color: `var(--accent)` }}>
       a collection of sites around the world wide web 🌏 that have inspired
       me...
     </p>
     <div id="flexContainer">
       {websites.length > 0 &&
         websites.map((url, i) => (
-          <div className="website" key={`${url.name}-card`}>
+          <div className="websiteCard" key={`${url.name}-card`}>
             <div key={url.name} className="title">
               {" "}
               {url.name}
             </div>
+
             <div key={i}>
               <a href={url.address}>
                 {url.address}
+
+                <div
+                  style={{
+                    backgroundColor: `var(--grey)`,
+                    textAlign: `left`,
+                    marginTop: `1em`
+                  }}
+                >
+                  {url.colors.sort().map(color => (
+                    <div
+                      style={{
+                        backgroundColor: color,
+                        display: `inline-block`,
+                        borderRadius: `50%`,
+                        width: `15px`,
+                        height: `15px`,
+                        margin: `.5em`
+                      }}
+                    >
+                      {" "}
+                      &nbsp;
+                    </div>
+                  ))}
+                </div>
+
                 <img src={url.photo} alt={url.name} />
               </a>
             </div>
@@ -40,30 +62,29 @@ const Index = ({ websites }) => (
         .title {
           font-weight: bold;
           font-size: 1.5em;
-          color: ${colors.secondaryHeadline};
+          color: var(--secondary-headline);
         }
-        .website {
-          width: 30%;
+        .websiteCard {
+          width: 26%;
           padding: 1em;
           margin: 20px;
+          background-color: var(--light-background);
         }
-        .website:nth-child(odd),
-        .website:nth-child(even) {
-          background-color: ${colors.lightBackground};
+
+        .websiteCard:nth-child(odd):hover {
+          border: 5mm ridge var(--accent);
+        }
+        .websiteCard:nth-child(even):hover {
+          border: 5mm ridge var(--secondary-headline);
         }
         ,
         img {
           width: 100%;
         }
 
-        h1,
-        a {
-          font-family: "Arial";
-        }
-
         a {
           text-decoration: none;
-          color: ${colors.accent};
+          color: var(--accent);
           font-size: 1.2em;
         }
 
@@ -71,7 +92,7 @@ const Index = ({ websites }) => (
           opacity: 0.6;
         }
         @media (max-width: 992px) {
-          .website {
+          .websiteCard {
             width: 40%;
           }
         }
@@ -80,7 +101,7 @@ const Index = ({ websites }) => (
             flex-direction: column;
             justify-content: center;
           }
-          .website {
+          .websiteCard {
             width: 90%;
           }
         }
@@ -98,7 +119,9 @@ export async function getServerSideProps({ req }) {
     headers: {
       "Content-type": "application/json"
     },
-    body: JSON.stringify({ query: "{ websites { name, address, photo } }" })
+    body: JSON.stringify({
+      query: "{ websites { name, address, photo, colors } }"
+    })
   });
 
   const {
