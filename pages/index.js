@@ -66,10 +66,11 @@ const Index = ({ websites }) => (
           color: var(--secondary-headline);
         }
         .websiteCard {
-          width: 26%;
+          width: 25%;
           padding: 1em;
           margin: 20px;
           background-color: var(--light-background);
+          border: 5mm ridge transparent;
         }
 
         .websiteCard:nth-child(odd):hover {
