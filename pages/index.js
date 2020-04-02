@@ -34,6 +34,7 @@ const Index = ({ websites }) => (
                   {colors &&
                     colors.sort().map(color => (
                       <div
+                        key={color}
                         style={{
                           backgroundColor: color,
                           display: `inline-block`,
