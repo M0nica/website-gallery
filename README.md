@@ -1,3 +1,9 @@
+# Website Gallery
+
+A collection of websites around the world-wide web that have inspired me. 
+
+<img src="https://github.com/M0nica/website-gallery/blob/master/public/Screen%20Shot%202020-04-02%20at%209.44.42%20AM.png?raw=true" alt="screenshot of https://website-gallery.now.sh/">
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
