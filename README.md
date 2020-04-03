@@ -42,4 +42,4 @@ The easiest way to deploy your Next.js app is to use the [ZEIT Now Platform](htt
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-Note: Currently there is a bug 🐛 where images are only generated locally. In order to deploy a functional site whenever adding additional sites the the site should either be deployed from CLI after running locally and visiting the homepage OR with CI/CD after committing newly generated images to version control. 
+Note: Currently there is a bug 🐛 where images are only generated locally. In order to deploy a functional site whenever adding additional sites the the site should either be deployed from CLI after running locally and visiting the homepage.
