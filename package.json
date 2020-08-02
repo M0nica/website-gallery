@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "apollo-server-micro": "2.6.7",
+    "apollo-server-micro": "2.14.2",
     "capture-website": "^0.8.1",
     "get-image-colors": "^2.0.0",
     "graphql": "14.4.2",
